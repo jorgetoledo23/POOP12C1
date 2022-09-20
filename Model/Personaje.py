@@ -16,6 +16,7 @@ class Personaje:
         self.__Vida = 100
         self.__Fuerza = 100
         self.__Oro = 1000
+        self.__Inventario = []
 
     def getStats(self):
         return f"Nombre: {self.__Nombre}, Vida: {self.__Vida}, Fuerza: {self.__Fuerza}, Oro: {self.__Oro}"
@@ -25,6 +26,10 @@ class Personaje:
 
     def setVida(self, nuevaVida:int):
         self.__Vida = nuevaVida
+
+    def Atacar(self, Objetivo):
+        fuerzaGolpe = int(self.__Fuerza / 15 + 10)
+        Objetivo.setVida(Objetivo.getVida() - fuerzaGolpe)
 
 
 
