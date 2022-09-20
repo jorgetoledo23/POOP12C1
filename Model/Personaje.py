@@ -31,5 +31,11 @@ class Personaje:
         fuerzaGolpe = int(self.__Fuerza / 15 + 10)
         Objetivo.setVida(Objetivo.getVida() - fuerzaGolpe)
 
+    def Comprar(self, Item):
+        self.__Oro - Item.getCoste()
+        self.__Vida += Item.getVida()
+        self.__Fuerza += Item.getFuerza()
+        self.__Inventario.append(Item)
+
 
 
