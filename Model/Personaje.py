@@ -32,7 +32,7 @@ class Personaje:
         Objetivo.setVida(Objetivo.getVida() - fuerzaGolpe)
 
     def Comprar(self, Item):
-        self.__Oro - Item.getCoste()
+        self.__Oro -= Item.getCoste()
         self.__Vida += Item.getVida()
         self.__Fuerza += Item.getFuerza()
         self.__Inventario.append(Item)

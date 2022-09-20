@@ -1,5 +1,7 @@
 from Model.Personaje import *
 import os
+import Tienda
+
 
 Player1 = Personaje("Player 1")
 Player2 = Personaje("Player 2")
@@ -21,6 +23,18 @@ while True:
         if Turno == 1: Player1.Atacar(Player2)
         else: Player2.Atacar(Player1)
 
+    if jugada == "2":
+        os.system("cls")
+        indice = 1
+        for item in Tienda.Tienda:
+            print(f"[{indice}] - {item.getStats()}")
+            indice += 1
+        opcion = int(input("Que deseas Comprar?: "))
+
+        if Turno == 1: Player1.Comprar(Tienda.Tienda[opcion - 1])
+        else: Player2.Comprar(Tienda.Tienda[opcion - 1])
+        print("Item Comprado")
+        
     input("Presiona Enter para continuar!")
     if Turno == 1: Turno = 2
     else: Turno = 1
