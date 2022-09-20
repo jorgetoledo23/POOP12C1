@@ -28,11 +28,3 @@ class Personaje:
 
 
 
-Player1 = Personaje("Player 1")
-Player2 = Personaje("Player 2")
-
-print(Player1.getVida())
-Player1.setVida(10000000000)
-
-print(Player1.getStats())
-print(Player2.getStats())
