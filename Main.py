@@ -70,8 +70,6 @@ while True:
         print(f"Jugador: {Ganador.getStats()} Gana el Game!!!")
         break
 
-
-
     input("Presiona Enter para continuar!")
     if Turno == 1: Turno = 2
     else: Turno = 1
