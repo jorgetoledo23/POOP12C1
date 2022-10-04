@@ -18,6 +18,9 @@ class Personaje:
         self.__Oro = 1000
         self.__Inventario = []
 
+    def obtenerInvertario(self):
+        return self.__Inventario
+
     def getStats(self):
         return f"Nombre: {self.__Nombre}, Vida: {self.__Vida}, Fuerza: {self.__Fuerza}, Oro: {self.__Oro}"
 
@@ -32,10 +35,25 @@ class Personaje:
         Objetivo.setVida(Objetivo.getVida() - fuerzaGolpe)
 
     def Comprar(self, Item):
-        self.__Oro -= Item.getCoste()
-        self.__Vida += Item.getVida()
-        self.__Fuerza += Item.getFuerza()
-        self.__Inventario.append(Item)
+        if self.__Oro >= Item.getCoste():
+            self.__Oro -= Item.getCoste()
+            self.__Vida += Item.getVida()
+            self.__Fuerza += Item.getFuerza()
+            self.__Inventario.append(Item)
+            print("Item Comprado!")
+        else:
+            print("Oro Insuficiente!")
 
+    def Vender(self, Item):
+        self.__Oro += int(Item.getCoste() * 0.5)
+        self.__Vida -= Item.getVida()
+        self.__Fuerza -= Item.getFuerza()
+        self.__Inventario.remove(Item)
+        print("Item Vendido!")
+
+
+    def getInventario(self):
+        for item in self.__Inventario:
+            print(item.getNombre()) 
 
 
